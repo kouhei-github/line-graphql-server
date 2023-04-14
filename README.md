@@ -7,9 +7,25 @@
 下記ファイルにスキーマを定義
 *.graphql
 
-下記を実行
+定義後下記を実行
 ```shell
 go run github.com/99designs/gqlgen generate
 ```
+
+---
+
+###初期設定
+```shell
+$ cp .env.sample .env
+
+$ cp ./src/.env.sample ./src/.env
+
+$ docker compose build
+
+$ docker compose up -d
+```
+
+起動後下記にアクセス   
+[http://localhost/](http://localhost/)
 
 
