@@ -1,0 +1,19 @@
+# 自動生成コードの元となるGraphQLスキーマがどこに配置してあるか
+schema:
+  - ./*.graphql
+
+# 自動生成されるgeneated.goの置き場所
+exec:
+  filename: internal/generated.go
+  package: internal
+
+# スキーマオブジェクトに対応するGo構造体の置き場所
+model:
+  filename: graph/model/models_gen.go
+  package: model
+
+# リゾルバコードの置き場所
+resolver:
+  layout: follow-schema
+  dir: graph
+  package: graph
