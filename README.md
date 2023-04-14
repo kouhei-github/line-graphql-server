@@ -25,7 +25,22 @@ $ docker compose build
 $ docker compose up -d
 ```
 
+---
+
+### Graphqlの実行
+
 起動後下記にアクセス   
 [http://localhost/](http://localhost/)
+
+下記を投げて実行する
+```graphql
+query {
+  user(name: "nagamatsu") {
+    id
+    username
+    email
+  }
+}
+```
 
 
