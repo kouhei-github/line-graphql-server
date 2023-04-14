@@ -14,7 +14,7 @@ go run github.com/99designs/gqlgen generate
 
 ---
 
-###初期設定
+### 初期設定
 ```shell
 $ cp .env.sample .env
 
