@@ -4,12 +4,11 @@ import (
 	"gorm.io/gorm"
 )
 
-type MeetupEntity struct {
+type Meetup struct {
 	gorm.Model
 	Name        string `json:"name" binding:"required"`
 	Description string `json:"description"  binding:"required"`
-	UserID      int
-	User        UserEntity `gorm:"foreignKey:ID" json:"user"`
+	UserID      uint   `json:"user_id"`
 }
 
 //func NewBlogEntity(title string, body string) (*BlogEntity, error) {

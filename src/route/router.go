@@ -17,13 +17,6 @@ func GetRouter() {
 		Srv: service.NewUserService(),
 	}}))
 
-	//query {
-	//	user(name: "nagamatsu") {
-	//		id
-	//		username
-	//		email
-	//	}
-	//}
 	http.Handle("/", playground.Handler("GraphQL playground", "/query"))
 	http.Handle("/query", srv)
 

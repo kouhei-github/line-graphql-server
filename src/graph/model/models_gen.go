@@ -10,8 +10,13 @@ type Meetup struct {
 }
 
 type User struct {
-	ID       string    `json:"id"`
-	Username string    `json:"username"`
-	Email    string    `json:"email"`
-	Meetups  []*Meetup `json:"meetups"`
+	ID       string `json:"id"`
+	Username string `json:"username"`
+	Email    string `json:"email"`
+}
+
+type UserCreateInput struct {
+	ID    *string `json:"id,omitempty"`
+	Name  string  `json:"name"`
+	Email string  `json:"email"`
 }

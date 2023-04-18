@@ -2,8 +2,18 @@ type User {
     id: ID!
     username: String!
     email: String!
+#    meetups: [Meetup!]!
+}
 
-    meetups: [Meetup!]!
+# UserCreateInput型
+input UserCreateInput {
+    id: ID # ! がなければ必須じゃなくする
+    name: String!
+    email: String!
+}
+
+type Mutation {
+    createUser(data: UserCreateInput!): User!
 }
 
 type Meetup {
