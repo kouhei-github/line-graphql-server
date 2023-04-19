@@ -60,8 +60,14 @@ func (r *queryResolver) User(ctx context.Context, name string) (*model.User, err
 	if err != nil {
 		return &model.User{}, err
 	}
+	slackContact.UserId = "U03P9NC0MFC"
+	slackContact.ChannelId = "C0410SY5JUT"
 
-	err = ChatTool.GetUserEmail(slackContact, "kohei0801nagamatsu@gmail.com")
+	// チャットツールのユーザーをEmailで検索する
+	//err = ChatTool.GetUserEmail(slackContact, "kohei0801nagamatsu@gmail.com")
+
+	// チャットツールにメッセージを送信する
+	err = ChatTool.PostMessageToChatTool(slackContact, "これはGolangのインターフェースからのメッセージです")
 	if err != nil {
 		return &model.User{}, err
 	}

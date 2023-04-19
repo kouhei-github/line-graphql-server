@@ -7,7 +7,9 @@ import (
 )
 
 type Connector struct {
-	Client *slack.Client
+	Client    *slack.Client
+	ChannelId string
+	UserId    string
 }
 
 func NewSlack() (Connector, error) {

@@ -15,11 +15,11 @@ func (connect Connector) FindUserByEmail(email string) error {
 	return nil
 }
 
-func (connect Connector) PostMessage(channelId string, userId string, message string) error {
+func (connect Connector) PostMessage(message string) error {
 	_, _, err := connect.Client.PostMessage(
-		"C0410SY5JUT",
-		slack.MsgOptionPostEphemeral("U03P9NC0MFC"),
-		slack.MsgOptionText("エラー通知", true),
+		connect.ChannelId,
+		slack.MsgOptionPostEphemeral(connect.UserId),
+		slack.MsgOptionText(message, true),
 	)
 	if err != nil {
 		return err

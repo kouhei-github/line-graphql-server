@@ -18,3 +18,12 @@ func GetUserEmail(connect chatConnect, email string) error {
 
 	return nil
 }
+
+func PostMessageToChatTool(connect chatConnect, message string) error {
+	err := connect.PostMessage(message)
+	if err != nil {
+		fmt.Println(err)
+		return logic.MyError{Message: "メッセージを送信できませんでした"}
+	}
+	return nil
+}
