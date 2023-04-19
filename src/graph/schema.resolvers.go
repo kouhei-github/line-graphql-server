@@ -7,6 +7,8 @@ package graph
 import (
 	"context"
 	"fmt"
+	"github.com/meetup/logic/ChatTool"
+	"github.com/meetup/logic/ChatTool/teamSlack"
 
 	"github.com/meetup/graph/model"
 	"github.com/meetup/internal"
@@ -54,6 +56,15 @@ func (r *queryResolver) User(ctx context.Context, name string) (*model.User, err
 	//	email
 	//}
 	//}
+	slackContact, err := teamSlack.NewSlack()
+	if err != nil {
+		return &model.User{}, err
+	}
+
+	err = ChatTool.GetUserEmail(slackContact, "kohei0801nagamatsu@gmail.com")
+	if err != nil {
+		return &model.User{}, err
+	}
 	return r.Srv.GetUserByName(name)
 }
 
